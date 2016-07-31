@@ -1,0 +1,146 @@
+.rdform-result-container {
+	display: none;
+	margin-bottom: 10px;
+}
+
+.rdform legend  {
+	margin-bottom: 13px;
+}
+
+.rdform legend small {
+	color: #555;
+	font-size: 60%;
+}
+
+/*.rdform-alert span.insert-data-info {
+	display: none;
+}*/
+
+.rdform .control-label {
+	font-weight: normal;
+	padding-top: 3px;
+}
+
+.rdform .duplicate-literal {
+	margin: 3px 0px;
+}
+
+.glyphicon-question-sign {
+	padding: 4px;
+	top: 0px;
+	opacity: 0.8;
+}
+.glyphicon-question-sign:hover {
+	opacity: 1;	
+}
+
+.rdform-edit-class-resource {
+	display: inline;
+	margin: 0 5px;
+}
+.rdform-edit-class-resource span {
+	font-size: 0.6em;
+	margin: 0 3px;
+	opacity: 0.5;
+}
+.rdform-edit-class-resource span:hover {
+	opacity: 1;	
+	cursor: pointer;
+}
+.rdform-edit-class-resource input.input-sm {
+	display: none;
+	width: auto !important;
+	font-size: 0.6em !important;
+}
+.rdform-class-typeof-select {
+	display: inline;
+	width: auto !important;
+	margin: 0 0 5px 7px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	padding: 2px 3px;
+	font-size: 0.9em;
+}
+select {
+	width: auto !important;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+	border-color: #999999;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.102);
+}
+input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus { 
+	/*border-color: #F8B9B7;*/
+	box-shadow: 0px 1px 2px #F8B9B7;
+}
+input[datatype="xsd:int"] {
+	width: 50%;
+	max-width: 150px;
+}
+.rdform .input-sm {
+	height: auto;
+}
+.form-control:focus { 
+	border-color: #999999;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.102);
+}
+
+.resizable(@direction: vertical) {
+  resize: @direction;
+  overflow: auto;
+}
+
+.rdform .rdform-class-group .form-group {
+	margin: 0px 0px 7px;
+}
+
+/* resource class */
+.rdform .rdform-class-group .form-group .rdform-class-group {
+	margin-left: 35px;
+}
+
+.rdform .rdform-resource-group .rdform-class-group {
+	border-left: 1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5;
+	padding-left: 5px;
+}
+.rdform .rdform-resource-group .rdform-class-group legend {
+	font-size: 18px;
+}
+
+.rdform .rdform-resource-group + .rdform-resource-group {
+	margin-top: -5px;	
+	border-top: 1px solid white;
+}
+/*.rdform .rdform-resource-group + .rdform-resource-group div {
+	padding-top: 4px;
+}*/
+
+.rdform-resource-uri-container {
+	margin-bottom: 0px;
+}
+
+.rdform .rdform-resource-group button {
+	margin: 5px 5px 5px;
+}
+
+/*.rdform .add-resource-button-group + .add-resource-button-group {
+	float: left;
+}
+.rdform .form-group {
+	display: block;
+}*/
+.rdform-resource-help {
+	font-size: 0.9em;
+}
+.rdform-resource-help-container {
+	display:inline
+}
+
+.ui-menu {
+	padding: 0px !important;
+}
+.ui-state-focus {
+	background: #DDD !important;
+	border: none !important;
+}
