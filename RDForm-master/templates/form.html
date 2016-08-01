@@ -1,34 +1,24 @@
-<form prefix="bio http://vocab.org/bio/0.1/ foaf http://xmlns.com/foaf/0.1/ rdfs http://www.w3.org/2000/01/rdf-schema# dc http://purl.org/dc/elements/1.1/ cpm http://example.com/">
+<form prefix="flms http://cours.imn.htwk-leipzig.de/ont/flms owl http://www.w3.org/2002/07/owl#">
   
   <!-- Root Class Person -->
   <legend>Person</legend>
-  <div typeof="foaf:Person" resource="Person-{pid}">
-    <!-- hidden property for wildcard replacements. The value comes from hooks.js -->
-    <input name="pid" type="hidden" value="123" />
+  <div typeof="flms:Person" resource="{forename}_{surname}">
 
-    <!-- literal property -->
+    
     <label>Name</label>
-    <input name="foaf:name" type="literal" datatype="xsd:string" required />
+    <input name="Name" type="resource" value="Name" arguments='{"forename":"{forename}","surname":"{surname}"}' required />
+    
+    <label>Gender</label>
+    <input name="Gender" type="literal" select select-options='{"woman":"woman", "man":"man"}'  datatype="xsd:string" required />
 
-    <input name="foaf:gender" type="literal" select select-options='{"woman":"woman", "man":"man"}'  datatype="xsd:string" />
+    <label>LifeData</label>
+    <input name="LifeData" type="resource" value="LifeData" arguments='{"forename":"{forename}","surname":"{surname}"}' />
 
-    <!-- resource property -->
-    <input name="bio:event" type="resource" value="bio:Birth"
-      arguments='{"pid":"{pid}"}' multiple
-    />
-
-    <!-- literal property -->
-    <label>E-Mail</label>    
-    <input name="foaf:mbox" type="literal" placeholder="name@example.org" additional multiple />
-
-    <!-- literal property as textarea -->
-    <label>Comment</label>
-    <input name="rdfs:comment" type="literal" textarea />
-  </div> 
-
+  </div>
   <!-- Resource Class Birth -->
+   <!--
   <legend>Birth</legend>
-  <div typeof="bio:Birth" resource="Birth-{pid}">
+  <div typeof="birth" resource="birth_{flms:forename}_{flms:surname}">
     <p class="help">Adds the resource Birth to the Person.</p>
 
     <label>Ort</label>
@@ -36,5 +26,84 @@
 
     <label>Datum</label>
     <input name="dc:date" type="literal" datatype="xsd:date" placeholder="JJJJ-MM-TT" />
-  </div> 
+  </div>
+  --> 
+  <legend>Name</legend>
+    <div typeof="Name" resource="Name_{forename}_{surname}">
+      <p class="help">Adds the resource Name to the Person.</p>
+
+      <label>forename</label>
+      <input name="forename" type="literal" datatype="xsd:string"  required/>
+
+      <label>surname</label>
+      <input name="surname" type="literal" datatype="xsd:string"  required/>
+
+      <label>birthname</label>
+      <input name="birthname" type="literal" datatype="xsd:string"  additional/>
+
+      <label>alternativename</label>
+      <input name="alternativename" type="literal" datatype="xsd:string"  additional/>
+    </div> 
+    
+  <legend>LifeData</legend>
+    <div typeof="LifeData" resource="LifeData_{forename}_{surname}">
+      <p class="help">Adds the resource LifeData to the Person.</p>
+
+      <label>Birth</label>
+      <input name="Birth" type="resource" value="Birth" arguments='{"forename":"{forename}","surname":"{surname}"}' additional/>
+
+      <label>Death</label>
+      <input name="Death" type="resource" value="Death" arguments='{"forename":"{forename}","surname":"{surname}"}' additional/>
+    </div> 
+
+  <legend>Birth</legend>
+    <div typeof="Birth" resource="Birth_{forename}_{surname}">
+      <p class="help">Adds the resource Birth to the LifeData.</p>
+
+      <label>Place</label>
+      <input name="Place" type="literal" datatype="xsd:string" additional />
+
+      <label>Date</label>
+      <input name="Date" type="resource" value="BirthDate" arguments='{"forename":"{forename}","surname":"{surname}","type":"Birth"}' additional />
+    </div> 
+  <legend>Death</legend>
+    <div typeof="Death" resource="Death_{forename}_{surname}">
+      <p class="help">Adds the resource Death to the LifeData.</p>
+
+      <label>Place</label>
+      <input name="Place" type="literal" datatype="xsd:string" additional />
+
+      <label>Date</label>
+      <input name="Date" type="resource" value="DeathDate" arguments='{"forename":"{forename}","surname":"{surname}","type":"Death"}' additional />
+    </div> 
+
+  <legend>BirthDate</legend>
+    <div typeof="BirthDate" resource="DateBirth_{forename}_{surname}">
+      <p class="help">Adds the resource Date to the Birth.</p>
+
+      <label>Day</label>
+      <input name="Day" type="literal" datatype="xsd:day" additional />
+
+      <label>Month</label>
+      <input name="Month" type="literal" datatype="xsd:month" additional />
+
+      <label>Year</label>
+      <input name="Year" type="literal" datatype="xsd:year"  additional />
+
+    </div>  
+    
+  <legend>DeathDate</legend>
+    <div typeof="DeathDate" resource="DateDeath_{forename}_{surname}">
+      <p class="help">Adds the resource Date to the Death.</p>
+
+      <label>Day</label>
+      <input name="Day" type="literal" datatype="xsd:day" additional />
+
+      <label>Month</label>
+      <input name="Month" type="literal" datatype="xsd:month" additional />
+
+      <label>Year</label>
+      <input name="Year" type="literal" datatype="xsd:year"  additional />
+
+    </div>  
 </form> 
